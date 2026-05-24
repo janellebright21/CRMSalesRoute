@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  /* Hide everything except the route sheet */
+  body > * { display: none !important; }
+  .print-route,
+  .print-route * { display: block !important; }
+
+  /* Show main content when printing */
+  #print-area { display: block !important; }
+
+  /* Hide sidebar, header, buttons during print */
+  aside,
+  header,
+  button:not(.print-keep) { display: none !important; }
+
+  /* Make route sheet look good */
+  .print-route {
+    display: block !important;
+    page-break-inside: avoid;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
